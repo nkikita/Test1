@@ -19,20 +19,17 @@ namespace Test1.Controllers
 
 [HttpGet]
 [Route("getProducts/")]
-public ActionResult<List<Product>> GetProducts()
-{
-
-        try
+        public ActionResult<List<Product>> GetProducts()
         {
-        var products =  _productService.GetProducts();
-
-        return Ok(products);
-
-        }
-        catch (Exception ex)
-        {
-        return BadRequest(ex.Message);
-        }
+            try
+            {
+            var products =  _productService.GetProducts();
+            return Ok(products);
             }
+            catch (Exception ex)
+            {
+            return BadRequest(ex.Message);
+            }
+        }
     }
 }

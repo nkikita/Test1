@@ -35,3 +35,4 @@ C:\vscode\project1\Test1\bin\Debug\net8.0\Dapper.dll
 C:\vscode\project1\Test1\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\vscode\project1\Test1\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\vscode\project1\Test1\bin\Debug\net8.0\Npgsql.dll
+C:\vscode\project1\Test1\obj\Debug\net8.0\Test1.sourcelink.json

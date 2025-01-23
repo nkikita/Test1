@@ -12,6 +12,7 @@ IServiceCollection serviceCollection = allServices.AddTransient<IProductService,
 builder.Services.AddControllers();
 
 var app = builder.Build();
+app.MapControllers();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
