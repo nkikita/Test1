@@ -9,5 +9,11 @@ namespace Test1.Services
     public interface IProductService
     {
         public List<Product> GetProducts();
+        public void AddProducts(Product product);
+        public void SetProducts(Product product);
+        public void DeleteProducts(int id);
+        public record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary);
     }
+
+
 }
