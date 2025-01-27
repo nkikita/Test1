@@ -12,7 +12,7 @@ namespace Test1.Services
         public void AddProducts(Product product);
         public void SetProducts(Product product);
         public void DeleteProducts(int id);
-        public record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary);
+       
     }
 
 
