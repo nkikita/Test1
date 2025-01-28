@@ -39,7 +39,7 @@ namespace Test1.Controllers
             try
             {
             _productService.AddProducts(product);
-            return Ok(product);
+            return Ok($"id = {product.id}");
             }
             catch (Exception ex)
             {

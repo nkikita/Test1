@@ -21,8 +21,10 @@ namespace Test1.Services
         public void AddProducts(Product product){
             using(var db = new NpgsqlConnection(connection))
             {
-                var sqlQwer = "INSERT INTO product (id, name) VALUES(@id, @name)";
-                db.Execute(sqlQwer, product);
+                var sqlQwer = "INSERT INTO product (name) VALUES(@name) RETURNING id;";
+
+                int userid = db.Query<int>(sqlQwer,product).FirstOrDefault();
+                product.id = userid;
             }
         }
 
