@@ -6,9 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+string connectionString = "Host=localhost;Port=5432;Database=DEMO;Username=postgres;Password=nikitos";
 
 IServiceCollection allServices = builder.Services; // коллекция сервисов
-IServiceCollection serviceCollection = allServices.AddTransient<IProductService, ProductService>(provider => new ProductService());
+IServiceCollection serviceCollection = allServices.AddTransient<IProductService, ProductService>(provider => new ProductService(connectionString));
 builder.Services.AddControllers();
 
 var app = builder.Build();
