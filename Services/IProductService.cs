@@ -8,7 +8,7 @@ namespace Test1.Services
 {
     public interface IProductService
     {
-        public List<Product> GetProducts();
+        public Task<IEnumerable<Product>> GetProducts();
         public void AddProducts(Product product);
         public void SetProducts(Product product);
         public void DeleteProducts(int id);

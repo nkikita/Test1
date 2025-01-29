@@ -19,11 +19,11 @@ namespace Test1.Controllers
 
 [HttpGet]
 [Route("getProducts/")]
-        public ActionResult<List<Product>> GetProducts()
+        public async Task<ActionResult<List<Product>>> GetProducts()
         {
             try
             {
-            var products =  _productService.GetProducts();
+            var products = await _productService.GetProducts();
             return Ok(products);
             }
             catch (Exception ex)

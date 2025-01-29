@@ -15,10 +15,11 @@ namespace Test1.Services
         public ProductService (string connectionString){
             _connectionString = connectionString;
         }
-        public List<Product> GetProducts(){
+        public async Task<IEnumerable<Product>> GetProducts(){
             using(var db = new NpgsqlConnection(_connectionString))
             {
-                return db.Query<Product>("SELECT id, name FROM public.product").ToList<Product>();
+                var qwer = await db.QueryAsync<Product>("SELECT id, name FROM public.product");
+                return  qwer.ToList(); 
             }
         }
 
