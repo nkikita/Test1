@@ -9,7 +9,8 @@ builder.Services.AddSwaggerGen();
 string connectionString = "Host=localhost;Port=5432;Database=DEMO;Username=postgres;Password=nikitos";
 
 IServiceCollection allServices = builder.Services; // коллекция сервисов
-IServiceCollection serviceCollection = allServices.AddTransient<IProductService, ProductService>(provider => new ProductService(connectionString));
+allServices.AddTransient<IProductService>(provider => new ProductService(connectionString));
+allServices.AddTransient<IProviderSevice>(provider => new ProviderService(connectionString));
 builder.Services.AddControllers();
 
 var app = builder.Build();
