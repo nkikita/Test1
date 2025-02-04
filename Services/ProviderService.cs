@@ -18,7 +18,7 @@ namespace Test1.Services
         public async Task<IEnumerable<Provider>> GetProvider(){
             using(var db = new NpgsqlConnection(_connectionString))
             {
-                var qwer = await db.QueryAsync<Provider>("SELECT id, name, inn FROM public.provider");
+                var qwer = await db.QueryAsync<Provider>("SELECT id, name, inn, product_id FROM public.provider");
                 return  qwer.ToList(); 
             }
         }
@@ -26,7 +26,7 @@ namespace Test1.Services
         public void AddProvider(Provider provider){
             using(var db = new NpgsqlConnection(_connectionString))
             {
-                var sqlQwer = "INSERT INTO provider (name, inn) VALUES(@name, @inn) RETURNING id;";
+                var sqlQwer = "INSERT INTO provider (name, inn, product_id) VALUES(@name, @inn, @product_id) RETURNING id;";
 
                 int userid = db.Query<int>(sqlQwer,provider).FirstOrDefault();
                 provider.id = userid;

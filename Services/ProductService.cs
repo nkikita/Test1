@@ -18,7 +18,7 @@ namespace Test1.Services
         public async Task<IEnumerable<Product>> GetProducts(){
             using(var db = new NpgsqlConnection(_connectionString))
             {
-                var qwer = await db.QueryAsync<Product>("SELECT id, name, count, provider_id FROM public.product");
+                var qwer = await db.QueryAsync<Product>("SELECT id, name, count FROM public.product");
                 return  qwer.ToList(); 
             }
         }
@@ -26,7 +26,7 @@ namespace Test1.Services
         public void AddProducts(Product product){
             using(var db = new NpgsqlConnection(_connectionString))
             {
-                var sqlQwer = "INSERT INTO product (name, provider_id) VALUES(@name, @provider_id) RETURNING id;";
+                var sqlQwer = "INSERT INTO product (name, count) VALUES(@name, @count) RETURNING id;";
 
                 int userid = db.Query<int>(sqlQwer,product).FirstOrDefault();
                 product.id = userid;

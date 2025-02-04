@@ -13,7 +13,5 @@ namespace Test1.Models
         [JsonPropertyName("NameProduct")]
         public string? name {get; set;}
         public int count {get; set;}
-        [JsonPropertyName("IdProvider")] 
-        public int provider_id {get; set;}
     }
 }

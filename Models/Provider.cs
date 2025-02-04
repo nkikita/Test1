@@ -15,5 +15,7 @@ namespace Test1.Models
         public string? name {get; set;}
         [JsonPropertyName("InnProvider")] 
         public double inn {get; set;}
+        [JsonIgnore]
+        public int product_id {get;set;}
     }
 }
