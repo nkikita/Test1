@@ -13,7 +13,21 @@ allServices.AddTransient<IProductService>(provider => new ProductService(connect
 allServices.AddTransient<IProviderSevice>(provider => new ProviderService(connectionString));
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+options.AddDefaultPolicy(
+policy =>
+policy.AllowAnyHeader()
+.AllowAnyMethod()
+.AllowAnyOrigin()
+)
+);
+
 var app = builder.Build();
+
+
+app.UseCors();
+
+
 app.MapControllers();
 
 if (app.Environment.IsDevelopment())

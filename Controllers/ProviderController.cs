@@ -50,6 +50,20 @@ namespace Test1.Controllers
             }
         }
     
+[HttpGet]
+        [Route("searchProv/")]
+        public async Task<ActionResult<Provider>> GetProvToID(int id)
+        {
+            try
+            {
+                var prov = _providerService.GetProvToID(id); 
+                return Ok(prov); 
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 [HttpDelete]
 [Route("deleteProvider/")]

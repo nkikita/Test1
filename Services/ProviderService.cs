@@ -48,5 +48,16 @@ namespace Test1.Services
                 db.Execute(sqlQwer,  provider);
             }
         }
+
+        public IEnumerable<Provider> GetProvToID(int id)
+        {
+            using (var db = new NpgsqlConnection(_connectionString))
+            {
+                var sqlQuery = "SELECT * FROM provider WHERE product_id = @Id";
+                
+                return db.Query<Provider>(sqlQuery, new { Id = id });
+                
+            }
+        }
     }
 }

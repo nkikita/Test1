@@ -13,6 +13,7 @@ namespace Test1.Services
         public void AddProvider(Provider product);
         public void SetProvider(Provider product);
         public void DeleteProvider(int id);
+        public IEnumerable<Provider> GetProvToID(int id);
        
     }
 }

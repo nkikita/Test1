@@ -9,13 +9,9 @@ namespace Test1.Models
 {
     public class Provider
     {
-        [JsonPropertyName("IdProvider")] 
         public int id {get; set;}
-        [JsonPropertyName("NameProvider")]
         public string? name {get; set;}
-        [JsonPropertyName("InnProvider")] 
         public double inn {get; set;}
-        [JsonIgnore]
         public int product_id {get;set;}
     }
 }
