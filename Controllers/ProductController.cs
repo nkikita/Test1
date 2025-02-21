@@ -32,6 +32,21 @@ namespace Test1.Controllers
             }
         }
 
+[HttpGet]
+[Route("getXMLToId/")]
+        public async Task<ActionResult<List<Product>>> get_product_xml(int id)
+        {
+            try
+            {
+            var prods = await _productService.get_product_xml(id);
+            return Ok(prods);
+            }
+            catch (Exception ex)
+            {
+            return BadRequest(ex.Message);
+            }
+        }
+
 [HttpPost]
 [Route("addProducts/")]
         public ActionResult<Product> AddProducts(Product product)

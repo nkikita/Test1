@@ -33,6 +33,16 @@ namespace Test1.Services
             }
         }
 
+       
+        public async Task<IEnumerable<Product>> get_product_xml(int id){
+            using(var db = new NpgsqlConnection(_connectionString)){
+                var sqlQuery = await db.QueryAsync<Product>("SELECT * from get_parsed_product(@id)", new { id });
+        
+                return sqlQuery.ToList();
+            }
+        }
+
+
         public void DeleteProducts(int productId){
             using(var db = new NpgsqlConnection(_connectionString))
             {
@@ -44,7 +54,7 @@ namespace Test1.Services
         public void SetProducts(Product product){
              using(var db = new NpgsqlConnection(_connectionString))
             {
-                var sqlQwer = "UPDATE product SET name = @name WHERE Id = @Id";
+                var sqlQwer = "UPDATE product SET name = @name, count = @count WHERE Id = @Id";
                 db.Execute(sqlQwer,  product);
             }
         }
